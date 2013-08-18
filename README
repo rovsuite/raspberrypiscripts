@@ -1,0 +1,7 @@
+These scripts setup and run software on your Raspberry Pi running Raspbian that help it operate an ROV.
+They are meant to be used in conjunction with Monterey (github.com/rovsuite/monterey).
+Written by Chris Konstad <chriskon149@gmail.com> (7/16/2013)
+
+Released under the MIT License.
+
+To install, simply copy all of the scripts to the home directory of the user "pi", then run setupscript.sh.  It will do the rest of the work.  An internet connection is required.
