@@ -20,16 +20,17 @@ else
 fi
 
 echo -e "${COLOR}Compiling and installing mjpg-streamer...${NC}"
-svn co https://mjpg-streamer.svn.sourceforge.net/svnroot/mjpg-streamer ~/mjpg-streamer/
-make -C ~/mjpg-streamer/mjpg-streamer/
+svn co https://mjpg-streamer.svn.sourceforge.net/svnroot/mjpg-streamer /home/pi/mjpg-streamer/
+make -C /home/pi/mjpg-streamer/mjpg-streamer/
 echo -e "${COLOR}Finished compiling and installing mjpg-streamer!${NC}"
 
 #Add code to install scripts and functions
-mkdir ~/bin
+mkdir /home/pi/bin
 
 #Video streaming script
-mv videostreaming.sh bin/videostreaming.sh
-chmod +x bin/videostreaming.sh
+VIDEO='/home/pi/bin/videostreaming.sh'
+mv videostreaming.sh $VIDEO
+chmod +x $VIDEO
 
 if [ $distro="debian" ]; then
 	sudo mv videostart.sh /etc/init.d/videostart.sh
@@ -41,28 +42,34 @@ else
 fi
 
 #Measure temperature script
-mv measuretemp.sh bin/measuretemp.sh
-chmod +x bin/measuretemp.sh
+TEMP='/home/pi/bin/measuretemp.sh'
+mv measuretemp.sh $TEMP
+chmod +x $TEMP
 
 #Uptime script
-mv uptime.sh bin/uptime.sh
-chmod +x bin/uptime.sh
+TIME='/home/pi/bin/uptime.sh'
+mv uptime.sh $TIME
+chmod +x $TIME
 
 #UsedMemory script
-mv usedmem.sh bin/usedmem.sh
-chmod +x bin/usedmem.sh
+MEM='/home/pi/bin/usedmem.sh'
+mv usedmem.sh $MEM
+chmod +x $MEM
 
 #UsedCPU script
-mv usedcpu.sh bin/usedcpu.sh
-chmod +x bin/usedcpu.sh
+CPU='/home/pi/bin/usedcpu.sh'
+mv usedcpu.sh $CPU
+chmod +x $CPU
 
 #PacketBuilder script
-mv packetbuilder.sh bin/packetbuilder.sh
-chmod +x bin/packetbuilder.sh
+PACKETBUILDER='/home/pi/bin/packetbuilder.sh'
+mv packetbuilder.sh $PACKETBUILDER
+chmod +x $PACKETBUILDER
 
 #SendUDP script
-mv sendudp.sh bin/sendudp.sh
-chmod +x bin/sendudp.sh
+SENDUDP='/home/pi/bin/sendudp.sh'
+mv sendudp.sh $SENDUDP
+chmod +x $SENDUDP
 
 #Automated sender script
 if [ $distro="debian" ]; then
